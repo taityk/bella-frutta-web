@@ -55,6 +55,18 @@ describe('getMenuItems', () => {
     const items = await getMenuItems()
     expect(items).toHaveLength(0)
   })
+
+  it('should fall back to "other" for unknown category', async () => {
+    mockGet.mockResolvedValue({
+      data: {
+        values: [
+          ['1', 'juice', 'テスト', 'Test', '500', '', '', '', 'TRUE'],
+        ],
+      },
+    })
+    const items = await getMenuItems()
+    expect(items[0].category).toBe('other')
+  })
 })
 
 describe('getCalendarEntries', () => {
@@ -76,5 +88,20 @@ describe('getCalendarEntries', () => {
     expect(entries).toHaveLength(1)
     expect(entries[0].month).toBe(4)
     expect(entries[0].fruit_ja).toBe('いちご')
+  })
+
+  it('should filter out rows with invalid month values', async () => {
+    mockGet.mockResolvedValue({
+      data: {
+        values: [
+          ['0', 'いちご', 'Strawberry', '栃木', 'Tochigi', '', ''],  // invalid: 0
+          ['13', 'みかん', 'Mikan', '佐世保', 'Sasebo', '', ''],       // invalid: 13
+          ['4', 'もも', 'Peach', '山梨', 'Yamanashi', '', ''],         // valid
+        ],
+      },
+    })
+    const entries = await getCalendarEntries()
+    expect(entries).toHaveLength(1)
+    expect(entries[0].month).toBe(4)
   })
 })
