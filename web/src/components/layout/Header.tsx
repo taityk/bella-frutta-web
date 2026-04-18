@@ -3,13 +3,26 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export function Header() {
   const t = useTranslations('nav')
   const locale = useLocale()
-  const otherLocale = locale === 'ja' ? 'en' : 'ja'
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
+
+  // Build the path for the other locale
+  // pathname in next-intl includes locale prefix: /en/menu or /menu
+  const otherLocale = locale === 'ja' ? 'en' : 'ja'
+  let otherLocalePath: string
+  if (locale === 'ja') {
+    // Japanese default: pathname = '/menu', other = '/en/menu'
+    otherLocalePath = `/en${pathname}`
+  } else {
+    // English: pathname = '/en/menu', strip '/en' prefix
+    otherLocalePath = pathname.replace(/^\/en/, '') || '/'
+  }
 
   const navLinks = [
     { href: '/menu', label: t('menu') },
@@ -48,7 +61,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href={`/${otherLocale}`}
+            href={otherLocalePath}
             className="text-xs tracking-[0.15em] uppercase px-3 py-1 border rounded-full transition-colors hover:opacity-60"
             style={{ borderColor: 'var(--bf-ink-faint)', color: 'var(--bf-ink-muted)' }}
           >
@@ -84,7 +97,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href={`/${otherLocale}`}
+            href={otherLocalePath}
             className="text-xs tracking-[0.15em] uppercase"
             style={{ color: 'var(--bf-ink-muted)' }}
           >

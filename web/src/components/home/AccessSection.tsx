@@ -1,10 +1,12 @@
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { LineButton } from '@/components/ui/LineButton'
 import { SITE_LINKS, STORE_INFO } from '@/lib/site-links'
 
 export function AccessSection() {
   const t = useTranslations('access')
+  const locale = useLocale()
+  const isJa = locale === 'ja'
 
   return (
     <section id="access" className="py-24 px-4" style={{ backgroundColor: 'var(--bf-base)' }}>
@@ -31,7 +33,7 @@ export function AccessSection() {
                 {t('hours')}
               </p>
               <p className="text-base tracking-wider" style={{ color: 'var(--bf-ink)' }}>
-                {STORE_INFO.hours_ja}
+                {isJa ? STORE_INFO.hours_ja : STORE_INFO.hours_en}
               </p>
             </div>
             <div>
@@ -39,7 +41,7 @@ export function AccessSection() {
                 {t('closed')}
               </p>
               <p className="text-base tracking-wider" style={{ color: 'var(--bf-ink)' }}>
-                {STORE_INFO.closed_ja}
+                {isJa ? STORE_INFO.closed_ja : STORE_INFO.closed_en}
               </p>
             </div>
             <div>
@@ -47,7 +49,7 @@ export function AccessSection() {
                 ACCESS
               </p>
               <p className="text-sm leading-relaxed tracking-wider" style={{ color: 'var(--bf-ink-muted)' }}>
-                {STORE_INFO.address_ja}
+                {isJa ? STORE_INFO.address_ja : STORE_INFO.address_en}
               </p>
               <a
                 href={SITE_LINKS.googleMaps}

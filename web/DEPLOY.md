@@ -72,6 +72,20 @@ function onOpen() {
 }
 ```
 
+### より速い更新方法: ISR Revalidation API
+
+Netlify Build Hook（フルビルド）の代わりに、ISR Revalidation APIを使うと5〜10分ではなく数秒でメニューが更新されます。
+
+Apps ScriptのURLを以下に変更:
+```
+const REVALIDATE_URL = 'https://your-site.netlify.app/api/revalidate?secret=YOUR_SECRET';
+
+function triggerRevalidate() {
+  UrlFetchApp.fetch(REVALIDATE_URL, { method: 'post' });
+  SpreadsheetApp.getUi().alert('メニューを更新しました（数秒で反映）');
+}
+```
+
 ## 3. 本番公開前チェックリスト
 
 - [ ] 全リンク有効（Instagram・LINE・Googleマップ）

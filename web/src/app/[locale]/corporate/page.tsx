@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { SITE_LINKS } from '@/lib/site-links'
 import type { Metadata } from 'next'
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'スムージーの卸・フルーツギフトなど、法人向けのご相談を承っています。',
 }
 
-export default function CorporatePage() {
-  const t = useTranslations('corporate_page')
+export default async function CorporatePage() {
+  const t = await getTranslations('corporate_page')
 
   const services = [
     { title: t('service1_title'), body: t('service1_body') },
