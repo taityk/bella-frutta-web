@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "calendar": "Fruit Calendar",
+    "corporate": "Corporate",
+    "access": "Access",
+    "lang": "日本語"
+  },
+  "hero": {
+    "catch": "Experience Seasonal Fruits\nWith All Five Senses.",
+    "sub": "No water. No ice. 100% pure fruit smoothies.",
+    "cta_menu": "View Menu",
+    "cta_access": "Access"
+  },
+  "concept": {
+    "label": "CONCEPT",
+    "title": "Experience Seasonal Fruits With All Five Senses",
+    "body": "Our smoothies contain no water and no ice — only carefully selected seasonal fruits. We don't just offer a drink. We invite you to taste the natural sweetness and aroma of fruit with all your senses."
+  },
+  "philosophy": {
+    "label": "PHILOSOPHY",
+    "title": "Our Philosophy",
+    "p1_title": "Zero Water. Zero Ice. 100% Fruit.",
+    "p1_body": "Most smoothies use water or ice, but not ours. Only fruit — so the natural sweetness comes through exactly as nature intended.",
+    "p2_title": "Always a Tasting First",
+    "p2_body": "Before we blend, we always offer a taste of the fresh fruit. Because the full experience includes eating, not just drinking.",
+    "p3_title": "Sourced from Trusted Farmers",
+    "p3_body": "From Akiyama Farm's Dekopon in Kagawa to Dejima no Hana's mikan in Sasebo — we source directly from farmers we trust."
+  },
+  "products": {
+    "label": "MENU",
+    "title": "Products",
+    "unit": "JPY (tax included)"
+  },
+  "farmers": {
+    "label": "FARMERS",
+    "title": "Our Farmers"
+  },
+  "owner": {
+    "label": "OWNER",
+    "title": "Meet the Owner"
+  },
+  "instagram": {
+    "label": "INSTAGRAM",
+    "title": "Latest Posts",
+    "link": "Follow on Instagram"
+  },
+  "access": {
+    "label": "ACCESS",
+    "title": "Access & Hours",
+    "hours": "Hours",
+    "closed": "Closed",
+    "line": "Contact via LINE",
+    "map": "View on Google Maps"
+  },
+  "footer": {
+    "corporate": "Corporate",
+    "copy": "© 2026 Bella Frutta DAIKANYAMA"
+  },
+  "menu_page": {
+    "title": "Menu",
+    "description": "Fresh smoothies and cut fruit made with seasonal ingredients.",
+    "all": "All",
+    "smoothie": "Smoothies",
+    "fruit": "Cut Fruit"
+  },
+  "calendar_page": {
+    "title": "Fruit Calendar",
+    "description": "Discover what's in season at Bella Frutta.",
+    "month_label": "Month",
+    "origin": "Origin"
+  },
+  "corporate_page": {
+    "title": "Corporate Inquiries",
+    "description": "We offer smoothie wholesale and fruit gift services for businesses.",
+    "services_label": "SERVICES",
+    "services_title": "Our Services",
+    "service1_title": "Smoothie Wholesale",
+    "service1_body": "We supply the same quality products available in our store to corporate clients. Ideal for restaurant dessert menus, events, and catering.",
+    "service2_title": "Fruit Gifts",
+    "service2_body": "We offer seasonal fruit gifts tailored to your gifting needs. Please get in touch to discuss your requirements.",
+    "cta_label": "CONTACT",
+    "cta_title": "Get in Touch",
+    "cta_body": "For inquiries, please use our contact form.",
+    "cta_button": "Contact Form"
+  }
+}
