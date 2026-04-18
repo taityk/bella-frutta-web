@@ -11,7 +11,7 @@ export type MenuItem = {
 }
 
 export type CalendarEntry = {
-  month: number        // 1-12
+  month: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
   fruit_ja: string
   fruit_en: string
   origin_ja: string
@@ -26,6 +26,6 @@ export type NewsItem = {
   title_en: string
   body_ja: string
   body_en: string
-  published_at: string // ISO date string
+  published_at: string // ISO date string (YYYY-MM-DD); validate at ingestion in sheets.ts
   active: boolean
 }

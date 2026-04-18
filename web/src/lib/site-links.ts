@@ -1,9 +1,14 @@
-export const SITE_LINKS = {
+export const SITE_LINKS: {
+  line: string
+  instagram: string
+  corporateForm: string | null
+  googleMaps: string
+} = {
   line: 'https://lin.ee/Uq5FESU',
   instagram: 'https://www.instagram.com/bellafrutta_daikanyama/',
-  corporateForm: '', // TODO: Googleフォームを店舗側から入手したら追記
+  corporateForm: null, // TODO: Googleフォームを店舗側から入手したら追記
   googleMaps: 'https://maps.google.com/?q=Bella+Frutta+Daikanyama',
-} as const
+}
 
 export const STORE_INFO = {
   name_ja: 'Bella Frutta DAIKANYAMA',

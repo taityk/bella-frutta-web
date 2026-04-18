@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import type { MenuItem, CalendarEntry } from '@/lib/types'
+import type { MenuItem, CalendarEntry, NewsItem } from '@/lib/types'
 
 describe('MenuItem type', () => {
   it('should accept valid menu item', () => {
@@ -31,5 +31,21 @@ describe('CalendarEntry type', () => {
       note_en: 'Spring classic',
     }
     expect(entry.month).toBe(4)
+  })
+})
+
+describe('NewsItem type', () => {
+  it('should accept valid news item', () => {
+    const item: NewsItem = {
+      id: '1',
+      title_ja: 'お知らせ',
+      title_en: 'Announcement',
+      body_ja: '本文',
+      body_en: 'Body text',
+      published_at: '2026-04-19',
+      active: true,
+    }
+    expect(item.active).toBe(true)
+    expect(item.published_at).toMatch(/^\d{4}-\d{2}-\d{2}$/)
   })
 })
