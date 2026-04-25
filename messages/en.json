@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "calendar": "Fruit Calendar",
+    "corporate": "Corporate",
+    "access": "Access",
+    "lang": "日本語",
+    "menu_open": "Open menu"
+  },
+  "hero": {
+    "catch": "The One and Only Smoothie\nThat Lets You Taste the Fruit Itself.",
+    "sub": "Seasonal fruits, in Daikanyama.",
+    "cta_menu": "View Menu",
+    "cta_access": "Access"
+  },
+  "concept": {
+    "label": "CONCEPT",
+    "title": "Experience Seasonal Fruits With All Five Senses",
+    "body": "Our smoothies contain no water and no ice — only carefully selected seasonal fruits. We don't just offer a drink. We invite you to taste the natural sweetness and aroma of fruit with all your senses."
+  },
+  "philosophy": {
+    "label": "PHILOSOPHY",
+    "title": "Our Philosophy",
+    "p1_title": "Zero Water. Zero Ice. 100% Fruit.",
+    "p1_body": "Most smoothies use water or ice, but not ours. Only fruit — so the natural sweetness comes through exactly as nature intended.",
+    "p2_title": "Always a Tasting First",
+    "p2_body": "Before we blend, we always offer a taste of the fresh fruit. Because the full experience includes eating, not just drinking.",
+    "p3_title": "Sourced from Trusted Farmers",
+    "p3_body": "From Akiyama Farm's Dekopon in Kagawa to Dejima no Hana's mikan in Sasebo — we source directly from farmers we trust."
+  },
+  "products": {
+    "label": "MENU",
+    "title": "Products",
+    "unit": "JPY (tax included)",
+    "market_price": "Market Price"
+  },
+  "farmers": {
+    "label": "FARMERS",
+    "title": "Our Farmers"
+  },
+  "owner": {
+    "label": "OWNER",
+    "title": "Meet the Owner",
+    "bio1": "Born and raised in Tsukiji. Growing up alongside his father's 150-year-old premium fish wholesale business, he developed a deep appreciation for seasonal ingredients — learning the difference between exceptional and ordinary through taste and touch.",
+    "bio2": "\"The same fish can be extraordinary or forgettable depending on its origin, season, harvesting method, post-catch handling, and timing of service.\" This conviction extends equally to fruit. A producer's passion and care are embedded in the product itself — and that is what moves the person who tastes it.",
+    "bio3": "A new chapter, past the age of 60. His mission: to bring the world's finest fruit closer to everyday life, and to share the story behind each fruit exactly as it is. That is why Bella Frutta was born."
+  },
+  "instagram": {
+    "label": "INSTAGRAM",
+    "title": "Seasonal Fruit Updates on Instagram",
+    "body": "We share the latest seasonal fruit arrivals and smoothie updates on Instagram. Follow us to stay in the loop.",
+    "cta": "Follow on Instagram",
+    "link": "Follow on Instagram"
+  },
+  "access": {
+    "label": "ACCESS",
+    "title": "Access & Hours",
+    "hours": "Hours",
+    "closed": "Closed",
+    "line": "Contact via LINE",
+    "map": "View on Google Maps"
+  },
+  "footer": {
+    "corporate": "Corporate",
+    "copy": "© 2026 Bella Frutta DAIKANYAMA"
+  },
+  "menu_page": {
+    "title": "Menu",
+    "description": "Fresh smoothies and cut fruit made with seasonal ingredients.",
+    "all": "All",
+    "smoothie": "Smoothies",
+    "fruit": "Cut Fruit",
+    "empty_all": "Menu coming soon.",
+    "empty_filtered": "No items found in this category.",
+    "market_price": "Market Price"
+  },
+  "calendar_page": {
+    "title": "Fruit Calendar",
+    "description": "Discover what's in season at Bella Frutta.",
+    "month_label": "Month",
+    "fruit_label": "Fruit",
+    "origin": "Origin"
+  },
+  "corporate_page": {
+    "title": "Corporate Inquiries",
+    "description": "We offer smoothie wholesale and fruit gift services for businesses.",
+    "services_label": "SERVICES",
+    "services_title": "Our Services",
+    "service1_title": "Smoothies",
+    "service1_body": "We supply the same quality products available in our store to corporate clients. Ideal for restaurant dessert menus, events, and catering.",
+    "service2_title": "Sherbet",
+    "service2_body": "Seasonal fruit sherbet for corporate clients. Perfect for dessert menus, gifts, and special occasions.",
+    "service3_title": "Fruit Gifts",
+    "service3_body": "We offer seasonal fruit gifts tailored to your gifting needs. Please get in touch to discuss your requirements.",
+    "clients_label": "CLIENTS",
+    "clients_title": "Our Clients",
+    "cta_label": "CONTACT",
+    "cta_title": "Get in Touch",
+    "cta_body": "For inquiries, please use our contact form.",
+    "cta_button": "Contact Form",
+    "clients_note": "* Client logos coming soon."
+  }
+}

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  --bf-base: #faf9f6;
+  --bf-surface: #ffffff;
+  --bf-base-2: #f0ece3;
+  --bf-ink: #1a1815;
+  --bf-ink-muted: #5c5852;
+  --bf-ink-faint: #8a847b;
+  --bf-gold: #c9a96e;
+  --bf-gold-hover: #b8955a;
+  --bf-accent: #2b4535;
+  --bf-accent-hover: #1f3327;
+  --bf-accent-soft: rgba(43, 69, 53, 0.07);
+}
+
+body {
+  background-color: var(--bf-base);
+  color: var(--bf-ink);
+}
