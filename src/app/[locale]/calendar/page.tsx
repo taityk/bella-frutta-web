@@ -1,10 +1,7 @@
 import { getTranslations } from 'next-intl/server'
-import { getCalendarEntries } from '@/lib/sheets'
 import { FruitCalendarTable } from '@/components/calendar/FruitCalendarTable'
 import type { CalendarEntry } from '@/lib/types'
 import type { Metadata } from 'next'
-
-export const revalidate = 86400
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -17,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const DUMMY_ENTRIES: CalendarEntry[] = [
+const STATIC_ENTRIES: CalendarEntry[] = [
   { month: 1, fruit_ja: 'みかん', fruit_en: 'Mikan', origin_ja: '佐世保・出島の花', origin_en: 'Sasebo, Dejima no Hana', note_ja: '糖度18度', note_en: 'Brix 18°' },
   { month: 2, fruit_ja: 'いちご', fruit_en: 'Strawberry', origin_ja: '栃木', origin_en: 'Tochigi', note_ja: '', note_en: '' },
   { month: 3, fruit_ja: 'デコポン', fruit_en: 'Dekopon', origin_ja: '香川・あきやま農園', origin_en: 'Kagawa, Akiyama Farm', note_ja: '2〜3ヶ月熟成', note_en: 'Aged 2-3 months' },
@@ -36,14 +33,7 @@ export default async function CalendarPage({ params }: Props) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'calendar_page' })
 
-  let entries: CalendarEntry[] = []
-  try {
-    entries = await getCalendarEntries()
-  } catch {
-    // Sheets not configured
-  }
-
-  const displayEntries = entries.length > 0 ? entries : DUMMY_ENTRIES
+  const displayEntries = STATIC_ENTRIES
 
   return (
     <div className="min-h-screen py-20 px-4" style={{ backgroundColor: 'var(--bf-base)' }}>

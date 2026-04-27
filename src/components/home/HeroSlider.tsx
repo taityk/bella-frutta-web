@@ -50,7 +50,7 @@ export function HeroSlider() {
       {/* テキスト */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
         <p
-          className="text-3xl md:text-5xl leading-snug mb-4 whitespace-pre-line"
+          className="text-[clamp(1.3rem,5.5vw,1.875rem)] md:text-5xl leading-snug mb-4 whitespace-pre-line"
           style={{ fontFamily: '"Noto Serif JP", serif', letterSpacing: '0.06em' }}
         >
           {t('catch')}

@@ -1,10 +1,7 @@
 import { getTranslations } from 'next-intl/server'
-import { getMenuItems } from '@/lib/sheets'
 import { STATIC_MENU_ITEMS } from '@/lib/static-menu'
 import { MenuGrid } from '@/components/menu/MenuGrid'
 import type { Metadata } from 'next'
-
-export const revalidate = 3600
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -21,13 +18,7 @@ export default async function MenuPage({ params }: Props) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'menu_page' })
 
-  let items = STATIC_MENU_ITEMS
-  try {
-    const sheetsItems = await getMenuItems()
-    if (sheetsItems.length > 0) items = sheetsItems
-  } catch {
-    // Sheets not configured — use static fallback
-  }
+  const items = STATIC_MENU_ITEMS
 
   return (
     <div className="min-h-screen py-20 px-4" style={{ backgroundColor: 'var(--bf-base)' }}>

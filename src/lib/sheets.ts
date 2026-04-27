@@ -21,10 +21,14 @@ async function getSheet(range: string): Promise<string[][]> {
   if (!spreadsheetId) throw new Error('GOOGLE_SHEETS_SPREADSHEET_ID is not set')
 
   const client = sheets({ version: 'v4', auth: getAuth() })
-  const response = await client.spreadsheets.values.get({
-    spreadsheetId,
-    range,
-  })
+
+  const timeout = new Promise<never>((_, reject) =>
+    setTimeout(() => reject(new Error('Sheets API timeout')), 3000)
+  )
+  const response = await Promise.race([
+    client.spreadsheets.values.get({ spreadsheetId, range }),
+    timeout,
+  ])
   return (response.data.values ?? []) as string[][]
 }
 

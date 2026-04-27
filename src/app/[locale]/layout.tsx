@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -19,17 +20,20 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>): Pro
       ? '旬の果物を、代官山で。水・氷ゼロのスムージー専門店。'
       : 'Seasonal fruits in Daikanyama. Smoothies made with zero water, zero ice — 100% fruit.'
 
+  const title =
+    locale === 'ja'
+      ? 'Bella Frutta | 代官山のフルーツとスムージーのお店'
+      : 'Bella Frutta | Fruits & Smoothies in Daikanyama'
+
   return {
-    title: 'Bella Frutta DAIKANYAMA',
+    metadataBase: new URL(process.env.URL ?? 'https://bella-frutta.jp'),
+    title,
     description,
-    icons: {
-      icon: '/images/others/logo/circle.jpg',
-      apple: '/images/others/logo/circle.jpg',
-    },
     openGraph: {
-      title: 'Bella Frutta DAIKANYAMA',
+      title,
       description,
       type: 'website',
+      images: [{ url: '/images/header/292A6945.jpg', width: 1200, height: 630 }],
     },
   }
 }
@@ -54,6 +58,13 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-BHK1PGJQ5G" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-BHK1PGJQ5G');
+        `}</Script>
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="pt-24">{children}</main>
