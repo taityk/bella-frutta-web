@@ -1,0 +1,8 @@
+.DS_Store
+.obsidian/
+node_modules/
+photo/
+*.jpg
+*.jpeg
+*.png
+!bella-frutta-web-main/public/**
