@@ -3,8 +3,8 @@ compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
 
 routes = [
-  { pattern = "bella-frutta.jp/*", custom_domain = true },
-  { pattern = "www.bella-frutta.jp/*", custom_domain = true }
+  { pattern = "bella-frutta.jp", custom_domain = true },
+  { pattern = "www.bella-frutta.jp", custom_domain = true }
 ]
 
 [assets]
