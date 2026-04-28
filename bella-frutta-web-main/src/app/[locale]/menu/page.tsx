@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { STATIC_MENU_ITEMS } from '@/lib/static-menu'
 import { MenuGrid } from '@/components/menu/MenuGrid'
 import type { Metadata } from 'next'
@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function MenuPage({ params }: Props) {
   const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'menu_page' })
 
   const items = STATIC_MENU_ITEMS

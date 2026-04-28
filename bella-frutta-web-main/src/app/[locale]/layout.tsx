@@ -1,12 +1,16 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import '../globals.css'
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
 
 type Props = {
   children: React.ReactNode
@@ -45,7 +49,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound()
   }
 
-  const messages = await getMessages()
+  setRequestLocale(locale)
+  const messages = await getMessages({ locale })
 
   return (
     <html lang={locale}>

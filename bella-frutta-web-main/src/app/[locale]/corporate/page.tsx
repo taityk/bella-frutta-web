@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { SITE_LINKS } from '@/lib/site-links'
 import type { Metadata } from 'next'
@@ -22,7 +22,9 @@ const PLACEHOLDER_CLIENTS = [
   { id: 6, name: 'Company F' },
 ]
 
-export default async function CorporatePage() {
+export default async function CorporatePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('corporate_page')
 
   const services = [

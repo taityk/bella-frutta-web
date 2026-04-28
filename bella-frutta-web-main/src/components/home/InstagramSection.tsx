@@ -1,3 +1,4 @@
+'use client'
 import { useTranslations } from 'next-intl'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { SITE_LINKS } from '@/lib/site-links'

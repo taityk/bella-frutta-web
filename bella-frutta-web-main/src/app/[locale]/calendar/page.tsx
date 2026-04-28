@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { FruitCalendarTable } from '@/components/calendar/FruitCalendarTable'
 import type { CalendarEntry } from '@/lib/types'
 import type { Metadata } from 'next'
@@ -31,6 +31,7 @@ const STATIC_ENTRIES: CalendarEntry[] = [
 
 export default async function CalendarPage({ params }: Props) {
   const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'calendar_page' })
 
   const displayEntries = STATIC_ENTRIES

@@ -1,3 +1,4 @@
+'use client'
 import { useTranslations, useLocale } from 'next-intl'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { LineButton } from '@/components/ui/LineButton'
