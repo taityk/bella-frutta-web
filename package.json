@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run dev --prefix bella-frutta-web-main",
-    "build": "npm install --prefix bella-frutta-web-main && npm run build --prefix bella-frutta-web-main",
+    "build": "npm install --prefix bella-frutta-web-main && npm run build --prefix bella-frutta-web-main && cp bella-frutta-web-main/out/ja.html bella-frutta-web-main/out/index.html && cp bella-frutta-web-main/out/ja/*.html bella-frutta-web-main/out/",
     "start": "npm run start --prefix bella-frutta-web-main"
   }
 }
