@@ -2,6 +2,8 @@ import createMiddleware from 'next-intl/middleware'
 import type { NextRequest } from 'next/server'
 import { routing } from './i18n/routing'
 
+export const runtime = 'edge'
+
 const handleI18nRouting = createMiddleware(routing)
 
 export function proxy(request: NextRequest) {
