@@ -2,8 +2,8 @@
   "name": "bella-frutta",
   "private": true,
   "scripts": {
-    "dev": "npm run dev --prefix web",
-    "build": "npm run build --prefix web",
-    "start": "npm run start --prefix web"
+    "dev": "npm run dev --prefix bella-frutta-web-main",
+    "build": "npm install --prefix bella-frutta-web-main && npm run build --prefix bella-frutta-web-main",
+    "start": "npm run start --prefix bella-frutta-web-main"
   }
 }
