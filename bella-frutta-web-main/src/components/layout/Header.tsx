@@ -24,11 +24,12 @@ export function Header() {
     otherLocalePath = pathname.replace(/^\/en/, '') || '/'
   }
 
+  const prefix = locale === 'en' ? '/en' : ''
   const navLinks = [
-    { href: '/menu', label: t('menu') },
-    { href: '/calendar', label: t('calendar') },
-    { href: '/corporate', label: t('corporate') },
-    { href: '/#access', label: t('access') },
+    { href: `${prefix}/menu`, label: t('menu') },
+    { href: `${prefix}/calendar`, label: t('calendar') },
+    { href: `${prefix}/corporate`, label: t('corporate') },
+    { href: `${prefix}/#access`, label: t('access') },
   ]
 
   return (
@@ -38,7 +39,7 @@ export function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 h-24 flex items-center justify-between">
         {/* ロゴ */}
-        <Link href="/" className="flex items-center">
+        <Link href={`${prefix}/`} className="flex items-center">
           <Image
             src="/images/others/logo/logo.png"
             alt="Bella Frutta DAIKANYAMA"
