@@ -56,8 +56,8 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>): Pro
     : 'Bella Frutta | Fruit Smoothies & Ice in Daikanyama, Tokyo'
 
   const description = isJa
-    ? '代官山でフルーツ・スムージー・フルーツアイスを楽しめる専門店。渋谷・恵比寿から徒歩圏内。旬の果物を使った水・氷ゼロのスムージー。'
-    : 'Premium fruit smoothies and ice in Daikanyama, Tokyo. Near Shibuya & Ebisu. Zero water, zero ice — 100% seasonal fruit.'
+    ? '代官山でフルーツ・スムージーを楽しめる専門店。渋谷・恵比寿から徒歩圏内。旬の果物を使った水・氷ゼロのスムージー。'
+    : 'Premium fruit smoothies in Daikanyama, Tokyo. Near Shibuya & Ebisu. Zero water, zero ice — 100% seasonal fruit.'
 
   const keywords = isJa
     ? ['代官山', 'フルーツ', 'スムージー', 'アイス', '渋谷', '恵比寿', '果物', '旬', 'フルーツアイス', 'フルーツスムージー', 'Bella Frutta', 'ベラフルッタ', '代官山スムージー', '代官山フルーツ']
