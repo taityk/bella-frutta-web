@@ -75,7 +75,7 @@
   },
   "menu_page": {
     "title": "メニュー",
-    "description": "旬の果物を使ったスムージー・カットフルーツをご用意しています。",
+    "description": "代官山のBella Fruttaのメニュー。旬の果物を使ったスムージー・フルーツアイス・カットフルーツをご用意しています。渋谷・恵比寿近く。",
     "all": "すべて",
     "smoothie": "スムージー",
     "fruit": "カットフルーツ",
@@ -85,7 +85,7 @@
   },
   "calendar_page": {
     "title": "果物カレンダー",
-    "description": "季節ごとに変わる旬の果物をお楽しみください。",
+    "description": "代官山Bella Fruttaで扱う旬の果物カレンダー。季節ごとに変わる旬の果物・フルーツをお楽しみください。",
     "month_label": "月",
     "fruit_label": "果物",
     "origin": "産地"

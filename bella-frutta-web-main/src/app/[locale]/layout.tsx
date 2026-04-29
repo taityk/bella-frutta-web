@@ -17,27 +17,76 @@ type Props = {
   params: Promise<{ locale: string }>
 }
 
+const JSON_LD_JA = {
+  '@context': 'https://schema.org',
+  '@type': 'FoodEstablishment',
+  name: 'Bella Frutta DAIKANYAMA',
+  alternateName: ['ベラフルッタ代官山', 'Bella Frutta'],
+  description: '代官山のフルーツ・スムージー・フルーツアイス専門店。渋谷・恵比寿から徒歩圏内。旬の果物を使った水・氷ゼロのスムージー。',
+  url: 'https://bella-frutta.jp',
+  telephone: '070-9394-7270',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '代官山町',
+    addressLocality: '渋谷区',
+    addressRegion: '東京都',
+    addressCountry: 'JP',
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Wednesday', 'Friday', 'Saturday', 'Sunday'], opens: '11:00', closes: '18:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Thursday'], opens: '13:00', closes: '18:00' },
+  ],
+  servesCuisine: ['フルーツ', 'スムージー', 'アイス', '果物'],
+  image: 'https://bella-frutta.jp/images/header/292A6945.jpg',
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 35.6491,
+    longitude: 139.7025,
+  },
+  areaServed: ['代官山', '渋谷', '恵比寿', '中目黒'],
+}
+
 export async function generateMetadata({ params }: Omit<Props, 'children'>): Promise<Metadata> {
   const { locale } = await params
-  const description =
-    locale === 'ja'
-      ? '旬の果物を、代官山で。水・氷ゼロのスムージー専門店。'
-      : 'Seasonal fruits in Daikanyama. Smoothies made with zero water, zero ice — 100% fruit.'
 
-  const title =
-    locale === 'ja'
-      ? 'Bella Frutta | 代官山のフルーツとスムージーのお店'
-      : 'Bella Frutta | Fruits & Smoothies in Daikanyama'
+  const isJa = locale === 'ja'
+
+  const title = isJa
+    ? 'Bella Frutta | 代官山のフルーツ・スムージー・アイス専門店｜渋谷・恵比寿近く'
+    : 'Bella Frutta | Fruit Smoothies & Ice in Daikanyama, Tokyo'
+
+  const description = isJa
+    ? '代官山でフルーツ・スムージー・フルーツアイスを楽しめる専門店。渋谷・恵比寿から徒歩圏内。旬の果物を使った水・氷ゼロのスムージー。'
+    : 'Premium fruit smoothies and ice in Daikanyama, Tokyo. Near Shibuya & Ebisu. Zero water, zero ice — 100% seasonal fruit.'
+
+  const keywords = isJa
+    ? ['代官山', 'フルーツ', 'スムージー', 'アイス', '渋谷', '恵比寿', '果物', '旬', 'フルーツアイス', 'フルーツスムージー', 'Bella Frutta', 'ベラフルッタ', '代官山スムージー', '代官山フルーツ']
+    : ['Daikanyama', 'fruit smoothie', 'fruit ice', 'Tokyo', 'Shibuya', 'Ebisu', 'seasonal fruit', 'Bella Frutta']
 
   return {
     metadataBase: new URL(process.env.URL ?? 'https://bella-frutta.jp'),
     title,
     description,
+    keywords,
     openGraph: {
       title,
       description,
       type: 'website',
-      images: [{ url: '/images/header/292A6945.jpg', width: 1200, height: 630 }],
+      locale: isJa ? 'ja_JP' : 'en_US',
+      images: [{ url: '/images/header/292A6945.jpg', width: 1200, height: 630, alt: 'Bella Frutta DAIKANYAMA' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/images/header/292A6945.jpg'],
+    },
+    alternates: {
+      canonical: 'https://bella-frutta.jp',
+      languages: {
+        'ja': 'https://bella-frutta.jp/ja',
+        'en': 'https://bella-frutta.jp/en',
+      },
     },
   }
 }
@@ -63,6 +112,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body>
+        <Script id="json-ld" type="application/ld+json" strategy="beforeInteractive">{`${JSON.stringify(JSON_LD_JA)}`}</Script>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-BHK1PGJQ5G" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
