@@ -10,14 +10,19 @@ export type MenuItem = {
   active: boolean
 }
 
+export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
 export type CalendarEntry = {
-  month: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+  id: string
   fruit_ja: string
   fruit_en: string
-  origin_ja: string
-  origin_en: string
-  note_ja: string
-  note_en: string
+  start_month: Month
+  end_month: Month
+  origin_ja?: string
+  origin_en?: string
+  note_ja?: string
+  note_en?: string
+  color: string
 }
 
 export type NewsItem = {

@@ -1,79 +1,126 @@
 'use client'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import type { CalendarEntry } from '@/lib/types'
 
 type Props = {
   entries: CalendarEntry[]
 }
 
-const MONTH_NAMES_JA = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-const MONTH_NAMES_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const MONTHS_JA = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const TOTAL_MONTHS = 12
 
 export function FruitCalendarTable({ entries }: Props) {
   const locale = useLocale()
-  const t = useTranslations('calendar_page')
-
-  // 月ごとにグループ化
-  const byMonth: Partial<Record<CalendarEntry['month'], CalendarEntry[]>> = {}
-  entries.forEach((entry) => {
-    if (!byMonth[entry.month]) byMonth[entry.month] = []
-    byMonth[entry.month]!.push(entry)
-  })
+  const monthNames = locale === 'ja' ? MONTHS_JA : MONTHS_EN
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse">
-        <thead>
-          <tr style={{ borderBottom: '1px solid var(--bf-base-2)' }}>
-            <th
-              className="text-left py-3 px-4 text-xs tracking-widest uppercase"
-              style={{ color: 'var(--bf-ink-faint)' }}
-            >
-              {t('month_label')}
-            </th>
-            <th
-              className="text-left py-3 px-4 text-xs tracking-widest uppercase"
-              style={{ color: 'var(--bf-ink-faint)' }}
-            >
-              {t('fruit_label')}
-            </th>
-            <th
-              className="text-left py-3 px-4 text-xs tracking-widest uppercase"
-              style={{ color: 'var(--bf-ink-faint)' }}
-            >
-              {t('origin')}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {([1,2,3,4,5,6,7,8,9,10,11,12] as CalendarEntry['month'][]).map((month) => {
-            const monthEntries = byMonth[month]
-            if (!monthEntries || monthEntries.length === 0) return null
-            return monthEntries.map((entry, idx) => (
-              <tr
-                key={`${month}-${idx}`}
-                style={{ borderBottom: '1px solid var(--bf-base-2)' }}
+      <div style={{ minWidth: '640px' }}>
+        {/* ヘッダー：月 */}
+        <div className="flex mb-2">
+          <div style={{ width: '140px', flexShrink: 0 }} />
+          <div className="flex flex-1">
+            {monthNames.map((m, i) => (
+              <div
+                key={i}
+                className="flex-1 text-center text-xs tracking-wider py-2"
+                style={{ color: 'var(--bf-ink-faint)' }}
               >
-                {idx === 0 && (
-                  <td
-                    className="py-4 px-4 font-medium tracking-wider align-top"
-                    rowSpan={monthEntries.length}
-                    style={{ color: 'var(--bf-ink)', fontFamily: '"Noto Serif JP", serif' }}
+                {m}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* グリッド区切り線 */}
+        <div className="flex mb-3">
+          <div style={{ width: '140px', flexShrink: 0 }} />
+          <div className="flex flex-1 relative" style={{ height: '1px', backgroundColor: 'var(--bf-base-2)' }}>
+            {Array.from({ length: TOTAL_MONTHS }).map((_, i) => (
+              <div
+                key={i}
+                className="flex-1"
+                style={{ borderLeft: '1px solid var(--bf-base-2)' }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* フルーツ行 */}
+        <div className="flex flex-col gap-3">
+          {entries.map((entry) => {
+            const name = locale === 'ja' ? entry.fruit_ja : entry.fruit_en
+            const origin = locale === 'ja' ? entry.origin_ja : entry.origin_en
+            const note = locale === 'ja' ? entry.note_ja : entry.note_en
+
+            // バーの位置・幅を計算
+            const start = entry.start_month - 1 // 0-indexed
+            const end = entry.end_month - 1     // 0-indexed
+            const barLeft = (start / TOTAL_MONTHS) * 100
+            const barWidth = ((end - start + 1) / TOTAL_MONTHS) * 100
+
+            return (
+              <div key={entry.id} className="flex items-center">
+                {/* フルーツ名 */}
+                <div
+                  style={{ width: '140px', flexShrink: 0 }}
+                  className="text-sm pr-3 text-right leading-tight"
+                >
+                  <span style={{ color: 'var(--bf-ink)', fontFamily: '"Noto Serif JP", serif' }}>
+                    {name}
+                  </span>
+                  {origin && (
+                    <div className="text-xs mt-0.5" style={{ color: 'var(--bf-ink-faint)' }}>
+                      {origin}
+                    </div>
+                  )}
+                </div>
+
+                {/* ガントバー */}
+                <div className="flex-1 relative" style={{ height: '32px' }}>
+                  {/* 背景グリッド線 */}
+                  <div className="absolute inset-0 flex pointer-events-none">
+                    {Array.from({ length: TOTAL_MONTHS }).map((_, i) => (
+                      <div
+                        key={i}
+                        className="flex-1"
+                        style={{ borderLeft: i > 0 ? '1px dashed var(--bf-base-2)' : 'none' }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* カラーバー */}
+                  <div
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full flex items-center px-3"
+                    style={{
+                      left: `${barLeft}%`,
+                      width: `${barWidth}%`,
+                      height: '26px',
+                      backgroundColor: entry.color,
+                    }}
                   >
-                    {locale === 'ja' ? MONTH_NAMES_JA[month - 1] : MONTH_NAMES_EN[month - 1]}
-                  </td>
-                )}
-                <td className="py-4 px-4" style={{ color: 'var(--bf-ink)' }}>
-                  {locale === 'ja' ? entry.fruit_ja : entry.fruit_en}
-                </td>
-                <td className="py-4 px-4 text-sm" style={{ color: 'var(--bf-ink-muted)' }}>
-                  {locale === 'ja' ? entry.origin_ja : entry.origin_en}
-                </td>
-              </tr>
-            ))
+                    {note && (
+                      <span
+                        className="text-xs truncate"
+                        style={{ color: 'rgba(0,0,0,0.55)', fontFamily: '"Noto Sans JP", sans-serif' }}
+                      >
+                        {note}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
           })}
-        </tbody>
-      </table>
+        </div>
+
+        {/* 下部グリッド線 */}
+        <div className="flex mt-3">
+          <div style={{ width: '140px', flexShrink: 0 }} />
+          <div className="flex flex-1" style={{ height: '1px', backgroundColor: 'var(--bf-base-2)' }} />
+        </div>
+      </div>
     </div>
   )
 }
