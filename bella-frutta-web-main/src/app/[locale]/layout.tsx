@@ -52,8 +52,8 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>): Pro
   const isJa = locale === 'ja'
 
   const title = isJa
-    ? 'Bella Frutta | 代官山のフルーツ・スムージー・アイス専門店｜渋谷・恵比寿近く'
-    : 'Bella Frutta | Fruit Smoothies & Ice in Daikanyama, Tokyo'
+    ? 'Bella Frutta | 代官山のフルーツ・スムージー専門店｜渋谷・恵比寿近く'
+    : 'Bella Frutta | Fruit Smoothies in Daikanyama, Tokyo'
 
   const description = isJa
     ? '代官山でフルーツ・スムージーを楽しめる専門店。渋谷・恵比寿から徒歩圏内。旬の果物を使った水・氷ゼロのスムージー。'
