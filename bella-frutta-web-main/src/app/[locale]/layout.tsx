@@ -82,9 +82,9 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>): Pro
       images: ['/images/header/292A6945.jpg'],
     },
     alternates: {
-      canonical: 'https://bella-frutta.jp',
+      canonical: isJa ? 'https://bella-frutta.jp' : 'https://bella-frutta.jp/en',
       languages: {
-        'ja': 'https://bella-frutta.jp/ja',
+        'ja': 'https://bella-frutta.jp',
         'en': 'https://bella-frutta.jp/en',
       },
     },
