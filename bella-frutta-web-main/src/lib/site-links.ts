@@ -16,8 +16,10 @@ export const STORE_INFO = {
   address_ja: '東京都渋谷区代官山町', // TODO: 正確な住所に更新
   address_en: 'Daikanyama, Shibuya, Tokyo', // TODO
   phone: '070-9394-7270',
-  hours_ja: '水・金・土・日  11:00 – 18:00\n木  13:00 – 18:00',
-  hours_en: 'Wed / Fri / Sat / Sun  11:00 AM – 6:00 PM\nThu  1:00 PM – 6:00 PM',
+  hours_ja: '水  14:00 – 18:00\n木  13:00 – 18:00\n金・土・日  11:00 – 18:00',
+  hours_en: 'Wed  2:00 PM – 6:00 PM\nThu  1:00 PM – 6:00 PM\nFri / Sat / Sun  11:00 AM – 6:00 PM',
   closed_ja: '月・火曜日定休',
   closed_en: 'Closed Mon & Tue',
+  hours_note_ja: '農園視察の事情でお休みする場合がございます。\n※ご確認はInstagramでお願いします。',
+  hours_note_en: 'We may close for farm visits. Please check Instagram for the latest updates.',
 } as const

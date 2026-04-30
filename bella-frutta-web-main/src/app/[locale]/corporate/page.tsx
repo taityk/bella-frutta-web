@@ -74,7 +74,7 @@ export default async function CorporatePage({ params }: { params: Promise<{ loca
                 >
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--bf-ink-muted)' }}>
+                <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--bf-ink-muted)' }}>
                   {service.body}
                 </p>
               </div>

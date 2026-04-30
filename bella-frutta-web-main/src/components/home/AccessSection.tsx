@@ -38,6 +38,11 @@ export function AccessSection() {
                   {line}
                 </p>
               ))}
+              {(isJa ? STORE_INFO.hours_note_ja : STORE_INFO.hours_note_en).split('\n').map((line, i) => (
+                <p key={i} className="text-xs mt-2 leading-relaxed" style={{ color: 'var(--bf-ink-faint)' }}>
+                  {line}
+                </p>
+              ))}
             </div>
             <div>
               <p className="text-xs tracking-widest uppercase mb-1" style={{ color: 'var(--bf-gold)' }}>

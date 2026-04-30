@@ -82,12 +82,22 @@ export function MenuGrid({ items }: Props) {
                 <p className="text-xs mb-2" style={{ color: 'var(--bf-ink-muted)' }}>
                   {locale === 'ja' ? item.description_ja : item.description_en}
                 </p>
-                <p
-                  className="text-sm font-medium"
-                  style={{ color: 'var(--bf-accent)' }}
-                >
-                  {item.price > 0 ? `¥${item.price.toLocaleString()}~` : t('market_price')}
-                </p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <p
+                    className="text-sm font-medium"
+                    style={{ color: 'var(--bf-accent)' }}
+                  >
+                    {item.price > 0 ? `¥${item.price.toLocaleString()}~` : t('market_price')}
+                  </p>
+                  {(locale === 'ja' ? item.note_ja : item.note_en) && (
+                    <span
+                      className="text-xs px-2 py-0.5 rounded-full"
+                      style={{ backgroundColor: 'var(--bf-base-2)', color: 'var(--bf-ink-faint)' }}
+                    >
+                      {locale === 'ja' ? item.note_ja : item.note_en}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           ))}
