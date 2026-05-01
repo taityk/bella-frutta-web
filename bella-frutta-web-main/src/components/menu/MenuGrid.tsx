@@ -12,7 +12,7 @@ type Props = {
 export function MenuGrid({ items }: Props) {
   const t = useTranslations('menu_page')
   const locale = useLocale()
-  const [activeCategory, setActiveCategory] = useState<'all' | 'smoothie' | 'fruit'>('all')
+  const [activeCategory, setActiveCategory] = useState<'all' | 'smoothie' | 'fruit' | 'other'>('all')
 
   const filtered = activeCategory === 'all'
     ? items
@@ -22,6 +22,7 @@ export function MenuGrid({ items }: Props) {
     { key: 'all' as const, label: t('all') },
     { key: 'smoothie' as const, label: t('smoothie') },
     { key: 'fruit' as const, label: t('fruit') },
+    { key: 'other' as const, label: t('other') },
   ]
 
   return (
