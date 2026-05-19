@@ -89,7 +89,9 @@
     "description": "代官山Bella Fruttaで扱う旬の果物カレンダー。季節ごとに変わる旬の果物・フルーツをお楽しみください。",
     "month_label": "月",
     "fruit_label": "果物",
-    "origin": "産地"
+    "origin": "産地",
+    "coming_soon_label": "準備中",
+    "coming_soon_message": "近日公開予定です。しばらくお待ちください。"
   },
   "corporate_page": {
     "title": "法人のお客様へ",

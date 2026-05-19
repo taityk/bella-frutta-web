@@ -156,7 +156,25 @@ export default async function CalendarPage({ params }: Props) {
             {t('description')}
           </p>
         </div>
+
+        {/* Coming Soon */}
+        <div className="text-center py-16">
+          <div className="w-12 h-px mx-auto mb-8" style={{ backgroundColor: 'var(--bf-gold)' }} />
+          <p
+            className="text-xs tracking-[0.2em] uppercase mb-4"
+            style={{ color: 'var(--bf-gold)' }}
+          >
+            {t('coming_soon_label')}
+          </p>
+          <p className="text-sm" style={{ color: 'var(--bf-ink-muted)' }}>
+            {t('coming_soon_message')}
+          </p>
+          <div className="w-12 h-px mx-auto mt-8" style={{ backgroundColor: 'var(--bf-gold)' }} />
+        </div>
+
+        {/* TODO: カレンダーテーブル（将来的に復活予定）
         <FruitCalendarTable entries={displayEntries} />
+        */}
       </div>
     </div>
   )

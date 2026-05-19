@@ -89,7 +89,9 @@
     "description": "Discover what's in season at Bella Frutta.",
     "month_label": "Month",
     "fruit_label": "Fruit",
-    "origin": "Origin"
+    "origin": "Origin",
+    "coming_soon_label": "Coming Soon",
+    "coming_soon_message": "We're preparing this content. Please check back soon."
   },
   "corporate_page": {
     "title": "Corporate Inquiries",
