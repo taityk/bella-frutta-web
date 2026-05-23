@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 
 const SLIDES = [
+  '/images/header/292A1945.jpg',
   '/images/header/292A6945.jpg',
   '/images/header/292A7012.jpg',
   '/images/header/292A7032.jpg',
