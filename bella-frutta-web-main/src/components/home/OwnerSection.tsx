@@ -18,7 +18,7 @@ export function OwnerSection() {
               style={{ backgroundColor: 'var(--bf-base)' }}
             >
               <Image
-                src="/images/others/292A7361.jpg"
+                src="/images/others/292A1967.jpg"
                 alt="高野 茂"
                 fill
                 className="object-cover"
