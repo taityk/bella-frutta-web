@@ -127,7 +127,7 @@ export const STATIC_MENU_ITEMS: MenuItem[] = [
     category: 'smoothie',
     name_ja: 'アサイースムージー',
     name_en: 'Açaí Smoothie',
-    price: 1700,
+    price: 1500,
     description_ja: 'アマゾン原産のアサイーベリーをたっぷり使ったスムージー。濃厚な風味と自然な甘みが溶け合う、栄養たっぷりの一杯です。',
     description_en: 'Loaded with Amazonian açaí berries — deep, rich flavour and natural sweetness in every sip. Packed with nutrients.',
     image_url: '/images/menu/acai.jpg',

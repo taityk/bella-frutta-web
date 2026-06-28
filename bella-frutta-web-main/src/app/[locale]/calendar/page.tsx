@@ -121,7 +121,7 @@ const CALENDAR_DATA: MonthData[] = [
       { name: 'バナナ' },
       { name: 'パッションフルーツ' },
       { name: '夕張メロン', timing: '中旬〜' },
-      { name: '桃', variety: '日川白桃', timing: '中旬〜' },
+      { name: '桃', variety: '日川白鳳', timing: '中旬〜' },
     ],
   },
   {
