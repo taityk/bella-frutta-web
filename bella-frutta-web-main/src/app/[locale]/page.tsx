@@ -1,4 +1,5 @@
 import { HeroSlider } from '@/components/home/HeroSlider'
+import { NewsSection } from '@/components/home/NewsSection'
 import { ConceptSection } from '@/components/home/ConceptSection'
 import { ProductsSection } from '@/components/home/ProductsSection'
 import { OwnerSection } from '@/components/home/OwnerSection'
@@ -13,6 +14,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
+      <NewsSection />
       <ConceptSection />
       <ProductsSection items={menuItems} />
       <OwnerSection />
