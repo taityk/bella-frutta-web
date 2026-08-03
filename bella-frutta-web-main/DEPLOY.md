@@ -86,7 +86,11 @@ function triggerRevalidate() {
 }
 ```
 
-## 3. 本番公開前チェックリスト
+## 3. セキュリティヘッダー
+
+`public/_headers` にHSTS・CSP等のセキュリティヘッダーを定義しており、`next build` 時に `out/_headers` としてコピーされ、Cloudflare Workers Assetsが自動で適用する。追加・変更する場合は `public/_headers` を編集する。
+
+## 4. 本番公開前チェックリスト
 
 - [ ] 全リンク有効（Instagram・LINE・Googleマップ）
 - [ ] 法人フォームURLを `web/src/lib/site-links.ts` の `corporateForm` に追加
